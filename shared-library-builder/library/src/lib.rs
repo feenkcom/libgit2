@@ -26,3 +26,8 @@ pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
         LibraryLocation::Git(GitLocation::github("feenkcom", "libgit2").tag(version))
     }))
 }
+
+pub fn latest_libgit2() -> CMakeLibrary {
+    let version: Option<String> = None;
+    libgit2(version)
+}
