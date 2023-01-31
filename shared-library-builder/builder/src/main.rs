@@ -1,5 +1,4 @@
 use std::error::Error;
-use std::path::Path;
 
 use shared_library_builder::build_standalone;
 
