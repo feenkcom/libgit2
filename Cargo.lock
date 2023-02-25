@@ -240,7 +240,7 @@ dependencies = [
 [[package]]
 name = "libopenssl-library"
 version = "0.1.0"
-source = "git+https://github.com/feenkcom/libopenssl.git#6a4fe929a91139b122b61a30513e9b381707823c"
+source = "git+https://github.com/feenkcom/libopenssl.git#4c08b515639643bbe10840a90468b42fa6f71602"
 dependencies = [
  "cc",
  "serde",
@@ -391,7 +391,7 @@ dependencies = [
 [[package]]
 name = "shared-library-builder"
 version = "0.4.0"
-source = "git+https://github.com/feenkcom/shared-library-builder-rs#f6d8da0eea77c55ab745081295f8f0151d35db5a"
+source = "git+https://github.com/feenkcom/shared-library-builder-rs#448059d432a649daafcb4e3ca96ec8edc52ef5fe"
 dependencies = [
  "clap",
  "cmake",
