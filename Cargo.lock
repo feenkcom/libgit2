@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "shared-library-builder"
 version = "0.4.0"
-source = "git+https://github.com/feenkcom/shared-library-builder-rs#1245c6f6a6f4fb433415ce2e8ff511f504e8e8bc"
+source = "git+https://github.com/feenkcom/shared-library-builder-rs#6e0f24bfbdf49e4771655afee752c83b000f9071"
 dependencies = [
  "clap",
  "cmake",
