@@ -539,12 +539,13 @@ dependencies = [
 [[package]]
 name = "shared-library-builder"
 version = "0.4.0"
-source = "git+https://github.com/feenkcom/shared-library-builder-rs#cd3b0be1f34c40adbe88e0ddd86efb642afce63d"
+source = "git+https://github.com/feenkcom/shared-library-builder-rs#1245c6f6a6f4fb433415ce2e8ff511f504e8e8bc"
 dependencies = [
  "clap",
  "cmake",
  "file-matcher 0.7.0",
  "fs_extra",
+ "ndk-build",
  "pkg-config",
  "rustc_version",
  "serde",
