@@ -311,7 +311,7 @@ dependencies = [
 [[package]]
 name = "libopenssl-library"
 version = "0.1.0"
-source = "git+https://github.com/feenkcom/libopenssl.git#f712d5f10243dcd62f10c80923bd9db03097a037"
+source = "git+https://github.com/feenkcom/libopenssl.git#c206251a3fa305367ceaf42c519cd941cba14a53"
 dependencies = [
  "cc",
  "ndk-build",
@@ -539,7 +539,7 @@ dependencies = [
 [[package]]
 name = "shared-library-builder"
 version = "0.4.0"
-source = "git+https://github.com/feenkcom/shared-library-builder-rs#6e0f24bfbdf49e4771655afee752c83b000f9071"
+source = "git+https://github.com/feenkcom/shared-library-builder-rs#5b899157df49b78787883fb49378ba7dc3d8a80d"
 dependencies = [
  "clap",
  "cmake",
@@ -701,9 +701,9 @@ checksum = "08f95100a766bf4f8f28f90d77e0a5461bbdb219042e7679bebe79004fed8d75"
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.12"
+version = "1.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
+checksum = "e91b56cd4cadaeb79bbf1a5645f6b4f8dc5bde8834ad5894a8db35fda9efa1fe"
 
 [[package]]
 name = "unicode-normalization"
