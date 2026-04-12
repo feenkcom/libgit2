@@ -23,7 +23,8 @@ pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
     .define_common("USE_BUNDLED_ZLIB", "ON")
     .define_common("USE_SSH", "ON")
     .define_common("USE_HTTPS", "OpenSSL")
-    //.define_common("CMAKE_C_FLAGS", "-Wno-error=unused-command-line-argument")
+    // libgit2 specifies a too old minimum cmake version
+    .define_common("CMAKE_POLICY_VERSION_MINIMUM", "3.5")
     .depends(Box::new(libssh2))
     .with_release_location(binary_version.map(|version| {
         LibraryLocation::Git(GitLocation::github("feenkcom", "libgit2").tag(version))
