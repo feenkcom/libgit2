@@ -9,6 +9,7 @@ pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
         LibraryLocation::Git(GitLocation::github("libssh2", "libssh2").tag("libssh2-1.9.0")),
     )
     .define_common("CRYPTO_BACKEND", "OpenSSL")
+    .define_common("CMAKE_POLICY_VERSION_MINIMUM", "3.5")
     .depends(Box::new(openssl));
 
     CMakeLibrary::new(
@@ -23,7 +24,6 @@ pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
     .define_common("USE_BUNDLED_ZLIB", "ON")
     .define_common("USE_SSH", "ON")
     .define_common("USE_HTTPS", "OpenSSL")
-    // libgit2 specifies a too old minimum cmake version
     .define_common("CMAKE_POLICY_VERSION_MINIMUM", "3.5")
     .depends(Box::new(libssh2))
     .with_release_location(binary_version.map(|version| {
