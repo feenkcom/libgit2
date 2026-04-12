@@ -5,7 +5,9 @@ import hudson.tasks.junit.CaseResult
 pipeline {
     agent none
     parameters {
-        choice(name: 'BUMP', choices: ['minor', 'patch', 'major'], description: 'What to bump when releasing') }
+        choice(name: 'BUMP', choices: ['minor', 'patch', 'major'], description: 'What to bump when releasing')
+        booleanParam(name: 'CLEANUP', defaultValue: true, description: 'Remove target directory before the build')
+    }
     options {
         buildDiscarder(logRotator(numToKeepStr: '50'))
         disableConcurrentBuilds()
@@ -61,7 +63,11 @@ pipeline {
                     }
 
                     steps {
-                        sh 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                sh "rm -rf target"
+                            }
+                        }
                         sh "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release"
 
                         sh "mv target/${TARGET}/release/lib${LIBRARY_NAME}.${EXTENSION} lib${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -81,7 +87,11 @@ pipeline {
                     }
 
                     steps {
-                        sh 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                sh "rm -rf target"
+                            }
+                        }
                         sh "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release"
 
                         sh "mv target/${TARGET}/release/lib${LIBRARY_NAME}.${EXTENSION} lib${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -101,7 +111,11 @@ pipeline {
                     }
 
                     steps {
-                        sh 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                sh "rm -rf target"
+                            }
+                        }
                         sh "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release"
 
                         sh "mv target/${TARGET}/release/lib${LIBRARY_NAME}.${EXTENSION} lib${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -120,7 +134,11 @@ pipeline {
                     }
 
                     steps {
-                        sh 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                sh "rm -rf target"
+                            }
+                        }
                         sh "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release"
 
                         sh "mv target/${TARGET}/release/lib${LIBRARY_NAME}.${EXTENSION} lib${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -140,7 +158,11 @@ pipeline {
                     }
 
                     steps {
-                        sh 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                sh "rm -rf target"
+                            }
+                        }
                         sh "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release -- --target ${TARGET}"
 
                         sh "mv target/${TARGET}/release/lib${LIBRARY_NAME}.${EXTENSION} lib${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -163,7 +185,11 @@ pipeline {
                     }
 
                     steps {
-                        powershell 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                powershell "Remove-Item target -Recurse -Force"
+                            }
+                        }
 
                         powershell "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release -- --target ${TARGET}"
                         powershell "Move-Item -Path target/${TARGET}/release/${LIBRARY_NAME}.${EXTENSION} -Destination ${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
@@ -185,7 +211,11 @@ pipeline {
                     }
 
                     steps {
-                        powershell 'git clean -fdx'
+                        script {
+                            if (params.CLEANUP) {
+                                powershell "Remove-Item target -Recurse -Force"
+                            }
+                        }
 
                         powershell "cargo run --package ${REPOSITORY_NAME}-builder --bin builder --release -- --target ${TARGET}"
                         powershell "Move-Item -Path target/${TARGET}/release/${LIBRARY_NAME}.${EXTENSION} -Destination ${LIBRARY_NAME}-${TARGET}.${EXTENSION}"
