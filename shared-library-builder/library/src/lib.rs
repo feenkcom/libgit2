@@ -1,8 +1,8 @@
-use libopenssl_library::libcrypto;
+use libopenssl_library::libcrypto_v3;
 use shared_library_builder::{CMakeLibrary, CompiledLibraryName, GitLocation, LibraryLocation};
 
 pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
-    let openssl = libcrypto(Option::<String>::None);
+    let openssl = libcrypto_v3(Option::<String>::None);
 
     let libssh2 = CMakeLibrary::new(
         "ssh2",
