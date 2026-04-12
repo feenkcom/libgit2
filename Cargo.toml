@@ -16,3 +16,9 @@ overflow-checks = true
 
 [profile.release]
 opt-level = 3
+
+[workspace.dependencies]
+shared-library-builder = { git = "https://github.com/feenkcom/shared-library-builder-rs" }
+
+#[patch."https://github.com/feenkcom/shared-library-builder-rs"]
+#shared-library-builder = { path = "../shared-library-builder-rs" }

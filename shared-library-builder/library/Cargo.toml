@@ -1,14 +1,11 @@
 [package]
 name = "libgit2-library"
-version = "0.2.0"
+version = "1.6.5"
 edition = "2021"
 
 [lib]
 path = "src/lib.rs"
 
 [dependencies]
-shared-library-builder = { git = "https://github.com/feenkcom/shared-library-builder-rs", features = ["git-location", "cmake-library"] }
+shared-library-builder = { workspace = true, features = ["git-location", "cmake-library" ] }
 libopenssl-library = { git = "https://github.com/feenkcom/libopenssl.git" }
-which = "4.2"
-file-matcher = "0.6"
-user-error = "1.2"
