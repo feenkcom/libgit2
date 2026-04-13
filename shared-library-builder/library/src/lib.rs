@@ -6,10 +6,11 @@ pub fn libgit2(binary_version: Option<impl Into<String>>) -> CMakeLibrary {
 
     let libssh2 = CMakeLibrary::new(
         "ssh2",
-        LibraryLocation::Git(GitLocation::github("libssh2", "libssh2").tag("libssh2-1.9.0")),
+        LibraryLocation::Git(GitLocation::github("libssh2", "libssh2").tag("libssh2-1.11.1")),
     )
     .define_common("CRYPTO_BACKEND", "OpenSSL")
     .define_common("CMAKE_POLICY_VERSION_MINIMUM", "3.5")
+    .define_common("BUILD_SHARED_LIBS", "OFF")
     .depends(Box::new(openssl));
 
     CMakeLibrary::new(
