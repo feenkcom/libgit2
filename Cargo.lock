@@ -416,7 +416,7 @@ dependencies = [
 [[package]]
 name = "libopenssl-library"
 version = "0.1.0"
-source = "git+https://github.com/feenkcom/libopenssl.git#1939f803ddb48d7ab56c6f73b667e1ddd68162fa"
+source = "git+https://github.com/feenkcom/libopenssl.git#9e2c5a469983920e126271854baeb740ebc610a2"
 dependencies = [
  "cc",
  "ndk-build",
